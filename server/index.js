@@ -8,6 +8,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import authRoutes from "./routes/auth.js"
 import { register } from "./controllers/auth.js";
 
 // MIDDLEWARE CONFIGURATIONS 
@@ -41,6 +42,9 @@ const upload = multer({ storage }); //variable for uploading a file
 //"upload.single("picture")" is a middleware that uploads an image locally on the public/assets folder that's beeing called in storage variable --this needs to run before the endpoint which is the register controller/function
 //"register" actual logic of saving a user into a database 
 app.post("/auth/register", upload.single("picture"), register);
+
+//ROUTES
+app.use("/auth", authRoutes);
 
 //MONGOOSE CONFIG
 const PORT = process.env.PORT || 6001 //if port is not reached, port 6000 is returned
