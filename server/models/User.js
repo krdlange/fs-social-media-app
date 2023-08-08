@@ -1,5 +1,5 @@
 //MONGOOSE SCHEMA 
-//helps to set up the model
+//setup the objects that builds the model/schema
 
 import mongoose from "mongoose";
 
