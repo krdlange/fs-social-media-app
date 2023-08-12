@@ -11,6 +11,7 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js"
 import { register } from "./controllers/auth.js";
 import userRoutes from "./routes/users.js";
+
 // MIDDLEWARE CONFIGURATIONS 
 const __filename = fileURLToPath(import.meta.url); //to grab a file url when using modules so that we can use directory names
 const __dirname = path.dirname(__filename); //for using type modules
@@ -41,7 +42,7 @@ const upload = multer({ storage }); //variable for uploading a file
 //"auth/register" is a route"
 //"upload.single("picture")" is a middleware that uploads an image locally on the public/assets folder that's beeing called in storage variable --this needs to run before the endpoint which is the register controller/function
 //"register" actual logic of saving a user into a database 
-app.post("/auth/register", upload.single("picture"), verifyToken, register);
+app.post("/auth/register", upload.single("picture"), register);
 
 //ROUTES
 app.use("/auth", authRoutes);

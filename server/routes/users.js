@@ -7,7 +7,7 @@ import {
 } from "../controllers/users.js"
 import { verifyToken } from "../middleware/auth.js"
 
-const router = express.router();
+const router = express.Router();
 
 // read
 router.get("/:id", verifyToken, getUser);
