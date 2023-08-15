@@ -9,3 +9,6 @@ router.get("/", verifyToken, getFeedPosts); //to grab user feed when on homepage
 router.get("/:userId/posts", verifyToken, getUserPosts); //
 
 // update
+router.patch("/:id/like", verifyToken, likePost);
+
+export default router;
